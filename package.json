@@ -1,4 +1,21 @@
 {
+  "name": "iot-docs",
+  "description": "Turorials, papers, docs about IoT devices, smart home, lights, Raspberry Pi, Arduino...",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesusgn90/iot-docs.git"
+  },
+  "keywords": [
+    "arduino",
+    "raspberry-pi",
+    "tutorials",
+    "papers",
+    "docs",
+    "freak"
+  ],
+  "author": "jesusgn90",
+  "license": "GPL-3.0",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -6,5 +23,9 @@
   },
   "devDependencies": {
     "vuepress": "^1.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jesusgn90/iot-docs/issues"
+  },
+  "homepage": "https://github.com/jesusgn90/iot-docs#readme"
 }
