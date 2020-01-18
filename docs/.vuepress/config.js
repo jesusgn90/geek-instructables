@@ -1,3 +1,10 @@
 module.exports = {
-  base: '/'
+  title: 'IoT docs',
+  base: '/',
+  themeConfig: {
+    sidebar: [
+      '/',
+      '/diy-ngrok/',
+    ]
+  }
 }
