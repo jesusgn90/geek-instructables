@@ -13,8 +13,7 @@ module.exports = {
     repo: 'jesusgn90/geek-instructables',
     docsDir: 'docs',
     docsBranch: 'master',
-    editLinks: true,
-    editLinkText: 'Edit this page on GitHub',
+    editLinks: false,
     nextLinks: false,
     prevLinks: false
   },
