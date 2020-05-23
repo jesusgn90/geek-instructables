@@ -3,6 +3,8 @@ name: Pull request CI
 on:
   push:
     branches:
+      - '*'
+      - '*/*'
       - '!master'
       - '!gh-pages'
 
