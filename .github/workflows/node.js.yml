@@ -1,0 +1,28 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - run: yarn install
+    - run: yarn build
+    - run: echo 'geekinstructables.com' > docs/.vuepress/dist/CNAME
+    - name: Deploy
+      env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+      run: |
+        git init
+        git add -A
+        git commit -m "New deployment"
+        git push -f "https://$DEPLOY_TOKEN@github.com/jesusgn90/geek-instructables.git" master:gh-pages
