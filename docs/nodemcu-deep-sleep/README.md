@@ -68,3 +68,12 @@ The function `ESP.deepSleep` uses `μs` as unit, so you have to multiply the amo
 A typical use case is about reading current temperature and humidity, send the data to somewhere else and go to sleep every hour.
 
 Recommended sketch: [MQTT + Wi-Fi + DHT11 + Deep Sleep](https://github.com/jesusgn90/nodemcu-examples/blob/master/MQTT-WIFI-DHT11/mqtt-wifi-dht11-deep-sleep.ino)
+
+### About powerbanks
+
+There is a known problem with this kind of battery, most of them come with a preventive measure so it auto-turns itself off when there is no connected device. Once our NodeMCU is in deep sleep mode, it uses to consume about `0.04mA` (from my readings), so the power bank thinks there is no connected device. To solve this you have several options:
+
+- Modify the power bank to bypass this limitation.
+- Extract the batteries from the power bank and use them as it.
+- Use a power bank designed for IoT devices, they can be configured to avoid this behavior.
+- Use a different kind of battery :smile:.
