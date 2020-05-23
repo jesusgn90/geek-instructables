@@ -22,6 +22,8 @@ jobs:
       env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
       run: |
+        git config user.email "jesusgonzaleznovez+geek-instructables@gmail.com"
+        git config user.name "GitHub CI runner"
         git init
         git add -A
         git commit -m "New deployment"
