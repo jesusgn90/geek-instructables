@@ -21,8 +21,9 @@ jobs:
     - name: Deploy
       env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
       run: |
-        git config --global user.email "jesusgonzaleznovez+geek-instructables@gmail.com"
+        git config --global user.email "$GIT_EMAIL"
         git config --global user.name "GitHub CI runner"
         cd docs/.vuepress/dist
         git init
