@@ -4,13 +4,13 @@
 set -e
 
 # build
-yarn docs:build
+yarn build
 
 # navigate into the build output directory
 cd docs/.vuepress/dist
 
 # if you are deploying to a custom domain
-echo 'docs.appgranada.com' > CNAME
+echo 'geekinstructables.com' > CNAME
 
 git init
 git add -A
@@ -20,6 +20,6 @@ git commit -m 'New deployment'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:jesusgn90/iot-docs.git master:gh-pages
+git push -f git@github.com:jesusgn90/geek-instructables.git master:gh-pages
 
 cd -

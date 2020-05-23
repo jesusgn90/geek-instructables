@@ -1,5 +1,3 @@
-# IoT docs
+# Geek Instructables
 
-> THIS SITE IS UNDER DEVELOPMENT
-
-[jesusgn90/iot-docs](https://github.com/jesusgn90/iot-docs)
+![nodemcu](/nodemcu.png)

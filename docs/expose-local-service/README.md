@@ -1,14 +1,14 @@
 ---
-title: DIY alternative to Ngrok
+title: Expose local service (SSH tunnel)
 lang: en-US
 ---
 
-# DIY alternative to Ngrok
+# Expose local service (SSH tunnel)
 
 Somehow, you need to expose a local service to the Internet such a webservice running in a Raspberry Pi. However, you are not able
 to do it on usual ways such as static IP address or DynDNS due to whatever reason or simply, you just want to make your own [Ngrok](https://ngrok.com/) like system.
 
-## Requirements
+### Requirements
 
 - Device with the webservice expected to be exposed. For our example, a Raspberry Pi 3B+ with Internet access connected to our router (it's in our local network). About $35.
 - External server with static address. For our example, an AWS t2.nano instance with Ubuntu server 18.04 installed. About $5/month.
@@ -16,7 +16,7 @@ to do it on usual ways such as static IP address or DynDNS due to whatever reaso
 - Optionally, you may want to use a laptop to make things from here using SSH, but you don't really need it.
 - A little bit of Linux and networking knowledge.
 
-## Server | AWS t2.nano instance
+### Server | AWS t2.nano instance
  
 Security groups:
 
@@ -106,7 +106,7 @@ $ sudo touch /home/tunnel/.ssh/authorized_keys
 ```
 
 
-## Client | Raspberry PI 3B+
+### Client | Raspberry PI 3B+
 
 #### Create SSH key pair
 
@@ -200,7 +200,7 @@ Every request to `foo.example.com` is going to the AWS instance (`1.1.1.1`), onc
 foo.example.com <------> Raspberry Pi port 8080
 ```
 
-## Test it
+### Test
 
 Launch a static server in your Raspberry Pi:
 
@@ -210,7 +210,7 @@ $ python -m SimpleHTTPServer 8080
 
 Now, if you visit `foo.example.com`, you'll see the content served by the Raspberry Pi on port 8080 through the Python static server we just run.
 
-## Adding more services
+### Adding more services
 
 This is pretty simple now:
 
@@ -241,12 +241,12 @@ $ sudo systemctl enable secure-tunnel@bar_example_com
 $ sudo systemctl start secure-tunnel@bar_example_com
 ```
 
-## TLS and security notes
+### TLS and security notes
 
 Right now, you configured an architecture which works for HTTP requests, if you want to use HTTPS you'll need a certificate, configure NGINX and (probably) configure your service. The purpose of this tutorial is not to cover security concerns, just showing how to implement the solution. Security can be larger than expected to explain, but if you really know what it is, then you'll have no problem to configure it.
 
 Besides that, the tunnel is secure (SSH) and your Raspberry is not exposed at all, we are mapping ports from a remote AWS instance to a local port in your Raspberry, also, we are using the user `tunnel` which has limited privileges and has `/bin/false` as user's shell.
 
-## Conclusion
+### Conclusion
 
 As we can see, there is at least an alternative to Ngrok and for people that can't use DDNS, people under a NAT or just curious people, all of them  can expose services in a secure way.

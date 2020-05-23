@@ -1,17 +1,27 @@
 module.exports = {
-  title: 'IoT docs',
+  title: 'Geek Instructables',
   base: '/',
+  head: [
+    ['link', { rel: "icon", href: "/favicon.png"}],
+  ],
   themeConfig: {
     sidebar: [
       '/',
-      '/diy-ngrok/',
+      '/expose-local-service/',
+      '/nodemcu-deep-sleep/',
     ],
-    repo: 'jesusgn90/iot-docs',
+    repo: 'jesusgn90/geek-instructables',
     docsDir: 'docs',
     docsBranch: 'master',
     editLinks: true,
     editLinkText: 'Edit this page on GitHub',
     nextLinks: false,
     prevLinks: false
-  }
+  },
+  plugins: [
+    ['@vuepress/medium-zoom', {
+      selector: 'img',
+      margin: 16
+    }],
+  ]
 }
