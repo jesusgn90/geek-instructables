@@ -1,7 +1,7 @@
 {
   "name": "geek-instructables",
   "description": "Turorials about IoT devices, smart home, lights, Raspberry Pi, Arduino...",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jesusgn90/geek-instructables.git"
