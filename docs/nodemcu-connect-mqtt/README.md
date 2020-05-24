@@ -28,7 +28,7 @@ We have three main actors:
 
 Essentially, we can see this very similar to some social networks, you send a message including a hashtag (the topic) with some content (the message). Someone else, filters messages that include your hashtag (topic) and read the messages. But you actually don't care about the other person.
 
-<img class="image-center" src="/nodemcu-connect-mqtt/example.png" height="400" width="auto" >
+<img class="image-center" src="/nodemcu-connect-mqtt/example.png" height="auto" width="100%" >
 
 _Image credits: [https://www.electronics-lab.com/](https://www.electronics-lab.com/community/index.php?/topic/47715-realtek-ameba-rtl8195-mqtt-demo/)_
 
