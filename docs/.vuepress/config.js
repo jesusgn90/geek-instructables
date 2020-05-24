@@ -7,7 +7,10 @@ module.exports = {
   themeConfig: {
     sidebar: [
       '/',
+      '/exclude-branch-github-action/',
       '/expose-local-service/',
+      '/nodemcu-connect-mqtt/',
+      '/nodemcu-connect-to-wifi/',
       '/nodemcu-deep-sleep/',
     ],
     repo: 'jesusgn90/geek-instructables',
@@ -22,5 +25,13 @@ module.exports = {
       selector: 'img',
       margin: 16
     }],
+    [
+      'social-share',
+      {
+        networks: ['twitter', 'facebook', 'reddit', 'telegram', 'linkedin'],
+        autoQuote: true,
+        noGlobalSocialShare: true,
+      },
+    ],
   ]
 }

@@ -1,7 +1,13 @@
 ---
 title: NodeMCU deep sleep mode
 lang: en-US
+shareTags:
+    - esp8266
+    - nodemcu
+    - deepsleep
 ---
+
+<social-share />
 
 # NodeMCU deep sleep mode
 

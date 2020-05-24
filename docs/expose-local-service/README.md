@@ -1,7 +1,14 @@
 ---
 title: Expose local service (SSH tunnel)
 lang: en-US
+shareTags:
+    - ssh
+    - sshtunnel
+    - aws
+    - raspberrypi
 ---
+
+<social-share />
 
 # Expose local service (SSH tunnel)
 
