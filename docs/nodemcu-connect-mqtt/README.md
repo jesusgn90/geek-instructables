@@ -228,6 +228,8 @@ Notes:
 
 The `setup_wifi` function is a helper function to connect to the Wi-Fi network.
 
+Recommended reading: [NodeMCU connect to Wi-Fi](https://geekinstructables.com/nodemcu-connect-to-wifi/)
+
 The `callback` function will be executed whenever the NodeMCU any message to any topic that it's subscribed to.
 
 ```c
