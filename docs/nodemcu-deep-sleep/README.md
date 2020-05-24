@@ -83,3 +83,5 @@ There is a known problem with this kind of battery, most of them come with a pre
 - Extract the batteries from the power bank and use them as it.
 - Use a power bank designed for IoT devices, they can be configured to avoid this behavior.
 - Use a different kind of battery :smile:.
+
+<Disqus/>

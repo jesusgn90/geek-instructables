@@ -21,6 +21,9 @@ module.exports = {
     prevLinks: false
   },
   plugins: [
+    ['disqus', {
+      shortname: 'geek-instructables'
+    }],
     ['@vuepress/medium-zoom', {
       selector: 'img',
       margin: 16

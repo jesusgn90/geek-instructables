@@ -98,3 +98,5 @@ Here are the four patterns explained:
 - `!gh-pages` is the same as `!master` but for the `gh-pages`.
 
 Using the above patterns we can run our job against any branch except `master` and `gh-pages` branches.
+
+<Disqus/>

@@ -257,3 +257,5 @@ Besides that, the tunnel is secure (SSH) and your Raspberry is not exposed at al
 ### Conclusion
 
 As we can see, there is at least an alternative to Ngrok and for people that can't use DDNS, people under a NAT or just curious people, all of them  can expose services in a secure way.
+
+<Disqus/>

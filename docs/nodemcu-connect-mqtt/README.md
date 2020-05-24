@@ -313,3 +313,5 @@ To send a message from your computer:
 ```sh
 $ mosquitto_pub -t inTopic -m "Test message from computer" -p 1884
 ```
+
+<Disqus/>
