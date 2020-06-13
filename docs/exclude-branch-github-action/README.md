@@ -55,15 +55,13 @@ The `branches` filter allows to filter by branch names and branch patterns, the 
 Here is the YML content:
 
 ```yml
-name: Pull request CI
+name: Push CI
 
 on:
   push:
-    branches:
-      - '*'
-      - '*/*'
-      - '!master'
-      - '!gh-pages'
+    branches-ignore:
+      - 'master'
+      - 'gh-pages'
 
 jobs:
   build:
@@ -78,25 +76,16 @@ jobs:
     - run: yarn test:unit
 ```
 
-Once again, we are using the `branches` filter. This time we are using a more complex syntax that I'm going to explain now.
+Now, let's the `branches-ignore` filter.
 
 ```yml
 on:
   push:
-    branches:
-      - '*'
-      - '*/*'
-      - '!master'
-      - '!gh-pages'
+    branches-ignore:
+      - 'master'
+      - 'gh-pages'
 ```
 
-Here are the four patterns explained:
-
-- `'*'` means any branch.
-- `'*/*'` means any branch that includes `/`.
-- `!master` means *not* `master`, the `!` is a negation.
-- `!gh-pages` is the same as `!master` but for the `gh-pages`.
-
-Using the above patterns we can run our job against any branch except `master` and `gh-pages` branches.
+Using the above filter we can run our job against any branch except `master` and `gh-pages` branches.
 
 <Disqus/>
