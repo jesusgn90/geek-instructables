@@ -13,6 +13,7 @@ module.exports = {
       '/nodemcu-connect-mqtt/',
       '/nodemcu-connect-to-wifi/',
       '/nodemcu-deep-sleep/',
+      '/nodemcu-i2c-lcd/',
     ],
     repo: 'jesusgn90/geek-instructables',
     docsDir: 'docs',
