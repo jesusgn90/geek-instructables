@@ -4,8 +4,8 @@ lang: en-US
 shareTags:
     - esp8266
     - nodemcu
-    - pressure
-    - hpa
+    - lcd
+    - i2c
 ---
 
 <social-share />
