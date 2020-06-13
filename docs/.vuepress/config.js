@@ -9,6 +9,7 @@ module.exports = {
       '/',
       '/exclude-branch-github-action/',
       '/expose-local-service/',
+      '/nodemcu-bmp280/',
       '/nodemcu-connect-mqtt/',
       '/nodemcu-connect-to-wifi/',
       '/nodemcu-deep-sleep/',
