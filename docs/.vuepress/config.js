@@ -38,11 +38,13 @@ module.exports = {
         noGlobalSocialShare: true,
       },
     ],
+    /*
     [
       '@vuepress/google-analytics',
       {
         'ga': 'UA-86686337-2' // UA-00000000-0
       }
     ]
+    */
   ]
 }
