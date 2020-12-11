@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NodeMCU connect to Wi-Fi | Geek Instructables</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/favicon.png">
+    <meta name="description" content="">
+    <link rel="preload" href="/assets/css/0.styles.24fd4a51.css" as="style"><link rel="preload" href="/assets/js/app.5ee03c05.js" as="script"><link rel="preload" href="/assets/js/2.d5fc9d08.js" as="script"><link rel="preload" href="/assets/js/11.cf247f02.js" as="script"><link rel="prefetch" href="/assets/js/10.e6fa0f2d.js"><link rel="prefetch" href="/assets/js/12.de54b797.js"><link rel="prefetch" href="/assets/js/13.29ff9bc7.js"><link rel="prefetch" href="/assets/js/3.807373b6.js"><link rel="prefetch" href="/assets/js/4.c85fc935.js"><link rel="prefetch" href="/assets/js/5.7110d665.js"><link rel="prefetch" href="/assets/js/6.d5b4cdd8.js"><link rel="prefetch" href="/assets/js/7.f6b6b50d.js"><link rel="prefetch" href="/assets/js/8.8a89244c.js"><link rel="prefetch" href="/assets/js/9.17b456e0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.24fd4a51.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Geek Instructables</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/jesusgn90/geek-instructables" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/jesusgn90/geek-instructables" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/" class="sidebar-link">Geek Instructables</a></li><li><a href="/exclude-branch-github-action/" class="sidebar-link">Exclude branch in GitHub action</a></li><li><a href="/expose-local-service/" class="sidebar-link">Expose local service (SSH tunnel)</a></li><li><a href="/nodemcu-bmp280/" class="sidebar-link">NodeMCU reading barometric pressure sensor</a></li><li><a href="/nodemcu-connect-mqtt/" class="sidebar-link">NodeMCU and MQTT protocol</a></li><li><a href="/nodemcu-connect-to-wifi/" class="active sidebar-link">NodeMCU connect to Wi-Fi</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/nodemcu-deep-sleep/" class="sidebar-link">NodeMCU deep sleep mode</a></li><li><a href="/nodemcu-i2c-lcd/" class="sidebar-link">NodeMCU using LCD screen through I2C</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><!----> <h1 id="nodemcu-connect-to-wi-fi"><a href="#nodemcu-connect-to-wi-fi" class="header-anchor">#</a> NodeMCU connect to Wi-Fi</h1> <p>Connecting the NodeMCU board to a Wi-Fi network is as simple as using the library <a href="https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFi.h" target="_blank" rel="noopener noreferrer">ESP8266WiFi<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p> <h3 id="minimal-sketch-for-testing"><a href="#minimal-sketch-for-testing" class="header-anchor">#</a> Minimal sketch for testing</h3> <p>Let's see a simple sketch to show how we can connect to a Wi-Fi network using this library.</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ESP8266WiFi.h&gt;</span></span>
+
+<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> ssid <span class="token operator">=</span> <span class="token string">&quot;REPLACE_SSID&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> password <span class="token operator">=</span> <span class="token string">&quot;REPLACE_WIFI_PASS&quot;</span><span class="token punctuation">;</span>
+
+WiFiClient espClient<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">setup_wifi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  WiFi<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>ssid<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> WL_CONNECTED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setup_wifi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>First of all, we include the library:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ESP8266WiFi.h&gt;</span></span>
+</code></pre></div><p>Define the network credentials:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> ssid <span class="token operator">=</span> <span class="token string">&quot;REPLACE_SSID&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> password <span class="token operator">=</span> <span class="token string">&quot;REPLACE_WIFI_PASS&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>Declare the client (type <code>WiFiClient</code>):</p> <div class="language-c extra-class"><pre class="language-c"><code>WiFiClient espClient<span class="token punctuation">;</span>
+</code></pre></div><p>Helper function to setup the client:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">void</span> <span class="token function">setup_wifi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  WiFi<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>ssid<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> WL_CONNECTED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>Initialize the client using <code>begin</code> function.</li> <li>While the client is not connected, wait 500ms (note that this might be an infinite loop!).</li></ul> <p>Finally, call the previous helper function from the <code>setup</code> function:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setup_wifi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>That's all. As you can see, it's pretty simple.</p> <h3 id="useful-functions-from-wi-fi-library"><a href="#useful-functions-from-wi-fi-library" class="header-anchor">#</a> Useful functions from Wi-Fi library</h3> <p>If you want to know the IP address, you can call <code>WiFi.localIP()</code>.</p> <div class="language-c extra-class"><pre class="language-c"><code>Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;IP address: &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Print assigned IP</span>
+Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">localIP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Prevent from being an access-point using <code>WiFi.mode(WIFI_STA)</code>:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token comment">/** 
+ * Explicitly set the ESP8266 to be a WiFi-client, otherwise, it by default,
+ * would try to act as both a client and an access-point and could cause
+ * network-issues with your other WiFi-devices on your WiFi-network. 
+ */</span>
+WiFi<span class="token punctuation">.</span><span class="token function">mode</span><span class="token punctuation">(</span>WIFI_STA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>You can also disconnect from the network using <code>WiFi.disconnect()</code>.</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token comment">// Disconnect from current network</span>
+WiFi<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><!----></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5ee03c05.js" defer></script><script src="/assets/js/2.d5fc9d08.js" defer></script><script src="/assets/js/11.cf247f02.js" defer></script>
+  </body>
+</html>

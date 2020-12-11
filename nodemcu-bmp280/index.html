@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NodeMCU reading barometric pressure sensor | Geek Instructables</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/favicon.png">
+    <meta name="description" content="">
+    <link rel="preload" href="/assets/css/0.styles.24fd4a51.css" as="style"><link rel="preload" href="/assets/js/app.5ee03c05.js" as="script"><link rel="preload" href="/assets/js/2.d5fc9d08.js" as="script"><link rel="preload" href="/assets/js/9.17b456e0.js" as="script"><link rel="prefetch" href="/assets/js/10.e6fa0f2d.js"><link rel="prefetch" href="/assets/js/11.cf247f02.js"><link rel="prefetch" href="/assets/js/12.de54b797.js"><link rel="prefetch" href="/assets/js/13.29ff9bc7.js"><link rel="prefetch" href="/assets/js/3.807373b6.js"><link rel="prefetch" href="/assets/js/4.c85fc935.js"><link rel="prefetch" href="/assets/js/5.7110d665.js"><link rel="prefetch" href="/assets/js/6.d5b4cdd8.js"><link rel="prefetch" href="/assets/js/7.f6b6b50d.js"><link rel="prefetch" href="/assets/js/8.8a89244c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.24fd4a51.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Geek Instructables</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/jesusgn90/geek-instructables" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/jesusgn90/geek-instructables" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/" class="sidebar-link">Geek Instructables</a></li><li><a href="/exclude-branch-github-action/" class="sidebar-link">Exclude branch in GitHub action</a></li><li><a href="/expose-local-service/" class="sidebar-link">Expose local service (SSH tunnel)</a></li><li><a href="/nodemcu-bmp280/" class="active sidebar-link">NodeMCU reading barometric pressure sensor</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/nodemcu-connect-mqtt/" class="sidebar-link">NodeMCU and MQTT protocol</a></li><li><a href="/nodemcu-connect-to-wifi/" class="sidebar-link">NodeMCU connect to Wi-Fi</a></li><li><a href="/nodemcu-deep-sleep/" class="sidebar-link">NodeMCU deep sleep mode</a></li><li><a href="/nodemcu-i2c-lcd/" class="sidebar-link">NodeMCU using LCD screen through I2C</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><!----> <h1 id="nodemcu-reading-barometric-pressure-sensor"><a href="#nodemcu-reading-barometric-pressure-sensor" class="header-anchor">#</a> NodeMCU reading barometric pressure sensor</h1> <p>For this tutorial we are using the <code>BMP280</code> sensor, see details <a href="https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp280-1.html#technical" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p> <h3 id="minimal-sketch-for-testing"><a href="#minimal-sketch-for-testing" class="header-anchor">#</a> Minimal sketch for testing</h3> <p>Let's see a simple sketch to show how we can use this barometric pressure sensor.</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;Adafruit_BMP280.h&gt;</span> </span>
+ 
+<span class="token comment">// Using 0x77 implies both CSB and SDO are connected to 3V3!</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> BMP280_I2C_ADDRESS  0x77</span>
+
+<span class="token comment">// initialize Adafruit BMP280 library</span>
+Adafruit_BMP280  bmp280<span class="token punctuation">;</span>
+ 
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+  <span class="token comment">/**
+   * SDA connected to NodeMCU D2 pin, which is GPIO4
+   * SCL connected to NodeMCU D1 pin, which is GPIO5
+   */</span>
+  Wire<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// initialize the BMP280 sensor</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>bmp280<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>BMP280_I2C_ADDRESS<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>  <span class="token comment">// connection error or device address wrong!</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Could not initialize sensor, retrying now...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">float</span> pressure <span class="token operator">=</span> bmp280<span class="token punctuation">.</span><span class="token function">readPressure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">100.0F</span><span class="token punctuation">;</span>
+ 
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Pressure = &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>pressure<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot; hPa&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><p>First of all, we include the library:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;Adafruit_BMP280.h&gt;</span> </span>
+</code></pre></div><p>This sensor can use <code>I2C</code> protocol, in our example, the address will be <code>0x77</code> so you must connect <code>CSB</code> and <code>SDO</code> pins to some of the <code>3V3</code> pins:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">define</span> BMP280_I2C_ADDRESS  0x77</span>
+</code></pre></div><p>Declare the client (type <code>Adafruit_BMP280</code>):</p> <div class="language-c extra-class"><pre class="language-c"><code>Adafruit_BMP280  bmp280<span class="token punctuation">;</span>
+</code></pre></div><p>The setup is pretty simple, just wait until our NodeMCU finds the address. <code>SDA</code> connected to NodeMCU <code>D2</code> pin, which is <code>GPIO4</code> and <code>SCL</code> connected to NodeMCU <code>D1</code> pin, which is <code>GPIO5</code>:</p> <div class="language-c extra-class"><pre class="language-c"><code>Wire<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span>bmp280<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>BMP280_I2C_ADDRESS<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Could not initialize sensor, retrying now...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Finally, read the pressure and print it through the serial monitor:</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">float</span> pressure <span class="token operator">=</span> bmp280<span class="token punctuation">.</span><span class="token function">readPressure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">100.0F</span><span class="token punctuation">;</span>
+
+Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Pressure = &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>pressure<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot; hPa&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>That's all. As you can see, it's pretty simple.</p> <h3 id="diagram"><a href="#diagram" class="header-anchor">#</a> Diagram</h3> <img src="/nodemcu-bmp280/diagram.png" height="350" width="auto" class="image-center"> <!----></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5ee03c05.js" defer></script><script src="/assets/js/2.d5fc9d08.js" defer></script><script src="/assets/js/9.17b456e0.js" defer></script>
+  </body>
+</html>
